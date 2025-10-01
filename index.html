@@ -1,578 +1,821 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ardelle Jody Nathaniel - Portfolio</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
     <style>
-        :root {
-            --primary-color: #0d6efd; 
-            --secondary-color: #6c757d;
-            --bg-color: #f8f9fa; 
-            --text-color: #212529; 
-            --card-bg: #ffffff;
-            --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-            --border-radius: 0.5rem;
-            --light-blue-bg: rgba(13, 110, 253, 0.12); 
-        }
+      /* --- THEME VARIABLES --- */
+      :root {
+        --primary-color: #0d6efd; /* Bootstrap Primary Blue */
+        --secondary-color: #6c757d; /* Bootstrap Secondary Gray */
+        --bg-color: #f8f9fa; /* Light Gray Background */
+        --text-color: #212529; /* Dark Gray Text */
+        --card-bg: #ffffff;
+        --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Enhanced shadow */
+        --border-radius: 0.5rem;
+        --light-blue-bg: rgba(13, 110, 253, 0.12); /* More vibrant */
+      }
 
-        [data-bs-theme="dark"] {
-            --bg-color: #1a1a1a;
-            --text-color: #f8f9fa;
-            --secondary-color: #adb5bd;
-            --card-bg: #2c2c2c;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-            --light-blue-bg: rgba(13, 110, 253, 0.15);
-        }
+      [data-bs-theme="dark"] {
+        --bg-color: #1a1a1a;
+        --text-color: #f8f9fa;
+        --secondary-color: #adb5bd;
+        --card-bg: #2c2c2c;
+        --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        --light-blue-bg: rgba(13, 110, 253, 0.15);
+      }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.7;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.7;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
 
-        .navbar {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: background-color 0.3s ease;
-        }
+      /* --- Navbar & Theme Switch --- */
+      .navbar {
+        background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        transition: background-color 0.3s ease;
+      }
 
-        [data-bs-theme="dark"] .navbar {
-            background-color: rgba(26, 26, 26, 0.8);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
+      [data-bs-theme="dark"] .navbar {
+        background-color: rgba(26, 26, 26, 0.8);
+      }
 
-        .navbar-brand {
-            font-weight: 700;
-            color: var(--primary-color);
-        }
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary-color);
+      }
 
-        .nav-link {
-            font-weight: 600;
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
-        }
+      .nav-link {
+        font-weight: 600;
+        color: var(--secondary-color);
+        transition: color 0.3s ease;
+      }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color);
-        }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary-color);
+      }
 
-        .theme-switch-wrapper {
-            display: flex;
-            align-items: center;
-        }
-        .theme-switch {
-            display: inline-block;
-            height: 24px;
-            position: relative;
-            width: 50px;
-            margin: 0 0.75rem; 
-        }
-        .theme-switch input {
-            display:none;
-        }
-        .slider {
-            background-color: #ccc;
-            bottom: 0;
-            cursor: pointer;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            transition: .4s;
-        }
-        .slider:before {
-            background-color: #fff;
-            bottom: 4px;
-            content: "";
-            height: 16px;
-            left: 4px;
-            position: absolute;
-            transition: .4s;
-            width: 16px;
-        }
-        input:checked + .slider {
-            background-color: var(--primary-color);
-        }
-        input:checked + .slider:before {
-            transform: translateX(26px);
-        }
-        .slider.round {
-            border-radius: 34px;
-        }
-        .slider.round:before {
-            border-radius: 50%;
-        }
-        .theme-switch-wrapper .fa-moon, .theme-switch-wrapper .fa-sun {
-            font-size: 1rem;
-            color: var(--secondary-color);
-        }
-        html[data-bs-theme="dark"] .fa-sun { display: none; }
-        html:not([data-bs-theme="dark"]) .fa-moon { display: none; }
-        
-        #hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(13, 110, 253, 0.05), rgba(255, 255, 255, 0));
-            transition: background 0.3s ease;
-        }
+      .theme-switch-wrapper {
+        display: flex;
+        align-items: center;
+      }
+      .theme-switch {
+        display: inline-block;
+        height: 24px;
+        position: relative;
+        width: 50px;
+        margin: 0 0.75rem;
+      }
+      .theme-switch input {
+        display: none;
+      }
+      .slider {
+        background-color: #ccc;
+        bottom: 0;
+        cursor: pointer;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: 0.4s;
+        border-radius: 34px;
+      }
+      .slider:before {
+        background-color: #fff;
+        bottom: 4px;
+        content: "";
+        height: 16px;
+        left: 4px;
+        position: absolute;
+        transition: 0.4s;
+        width: 16px;
+        border-radius: 50%;
+      }
+      input:checked + .slider {
+        background-color: var(--primary-color);
+      }
+      input:checked + .slider:before {
+        transform: translateX(26px);
+      }
 
-        [data-bs-theme="dark"] #hero {
-            background: linear-gradient(135deg, rgba(13, 110, 253, 0.1), rgba(26, 26, 26, 0));
-        }
+      .theme-switch-wrapper i {
+        font-size: 1rem;
+        color: var(--secondary-color);
+      }
 
+      html[data-bs-theme="dark"] .fa-sun {
+        display: none;
+      }
+      html:not([data-bs-theme="dark"]) .fa-moon {
+        display: none;
+      }
+
+      /* --- Hero Section --- */
+      #hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(13, 110, 253, 0.05),
+          rgba(255, 255, 255, 0)
+        );
+        transition: background 0.3s ease;
+      }
+
+      [data-bs-theme="dark"] #hero {
+        background: linear-gradient(
+          135deg,
+          rgba(13, 110, 253, 0.1),
+          rgba(26, 26, 26, 0)
+        );
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        font-weight: 300;
+      }
+
+      .hero-socials a {
+        font-size: 1.5rem;
+        color: var(--secondary-color);
+        margin: 0 1rem;
+        transition: color 0.3s ease;
+      }
+
+      .hero-socials a:hover {
+        color: var(--primary-color);
+      }
+
+      /* --- Section Styling --- */
+      .section {
+        padding: 80px 0;
+      }
+
+      .bg-light {
+        transition: background-color 0.3s ease;
+      }
+
+      [data-bs-theme="dark"] .bg-light {
+        background-color: #212529 !important;
+      }
+
+      .section-title {
+        text-align: center;
+        font-weight: 700;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+      }
+
+      /* --- Card Styling --- */
+      .custom-card {
+        background-color: var(--card-bg);
+        border: 1px solid #e9ecef; /* Subtle border for light mode */
+        border-radius: var(--border-radius);
+        box-shadow: var(--card-shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease,
+          border-color 0.3s ease;
+        height: 100%;
+      }
+
+      [data-bs-theme="dark"] .custom-card {
+        border-color: #3a3a3a; /* Darker border for dark mode */
+      }
+
+      .custom-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .skill-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+      }
+
+      .skill-badge {
+        display: inline-block;
+        padding: 0.5em 1em;
+        margin: 0.25em;
+        font-size: 0.9em;
+        font-weight: 500;
+        background-color: var(--light-blue-bg);
+        color: var(--primary-color);
+        border-radius: 50px;
+      }
+
+      [data-bs-theme="dark"] .skill-badge {
+        color: #a9c7ff; /* Lighter blue for better contrast */
+        background-color: rgba(
+          13,
+          110,
+          253,
+          0.2
+        ); /* Slightly more opaque background */
+      }
+
+      /* --- Experience & Education Timeline --- */
+      .timeline {
+        position: relative;
+        padding: 0;
+        list-style: none;
+      }
+
+      .timeline:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 30px;
+        width: 2px;
+        background: #495057;
+      }
+
+      [data-bs-theme="light"] .timeline:before {
+        background: #e9ecef;
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 30px;
+      }
+
+      .timeline-icon {
+        position: absolute;
+        left: 15px;
+        top: 0;
+        width: 32px;
+        height: 32px;
+        background: var(--primary-color);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 0 4px var(--bg-color);
+        transition: box-shadow 0.3s ease;
+      }
+
+      .timeline-content {
+        margin-left: 60px;
+      }
+
+      .timeline-content h5 {
+        font-weight: 600;
+      }
+
+      .timeline-date {
+        font-size: 0.9em;
+        font-weight: 600;
+        color: var(--secondary-color);
+      }
+
+      .project-links a {
+        text-decoration: none;
+      }
+
+      [data-bs-theme="dark"] .btn-outline-primary {
+        --bs-btn-color: #a9c7ff;
+        --bs-btn-border-color: #a9c7ff;
+        --bs-btn-hover-bg: #a9c7ff;
+        --bs-btn-hover-border-color: #a9c7ff;
+        --bs-btn-hover-color: #000;
+      }
+
+      /* --- Contact --- */
+      .contact-info i {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        background-color: var(--light-blue-bg);
+        color: var(--primary-color);
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+
+      .contact-info a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      /* --- Footer --- */
+      footer {
+        background-color: #e9ecef;
+        color: var(--secondary-color);
+        padding: 20px 0;
+        text-align: center;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      [data-bs-theme="dark"] footer {
+        background-color: #2c2c2c;
+        color: var(--secondary-color);
+      }
+
+      /* --- Responsive Design --- */
+      @media (max-width: 991.98px) {
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
+          font-size: 2.8rem;
         }
-
         .hero-subtitle {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            font-weight: 300;
+          font-size: 1.2rem;
         }
-
-        .hero-socials a {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .hero-socials a:hover {
-            color: var(--primary-color);
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-        
-        .bg-light {
-            transition: background-color 0.3s ease;
-        }
-        
-        [data-bs-theme="dark"] .bg-light {
-            background-color: #212529 !important;
-        }
-
-        .section-title {
-            text-align: center;
-            font-weight: 700;
-            margin-bottom: 50px;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        .custom-card {
-            background-color: var(--card-bg);
-            border: 1px solid #e9ecef; 
-            border-radius: var(--border-radius);
-            box-shadow: var(--card-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            height: 100%;
-        }
-
-        [data-bs-theme="dark"] .custom-card {
-            border-color: #3a3a3a; 
-        }
-
-        .custom-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .skill-icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-        }
-
-        .skill-badge {
-            display: inline-block;
-            padding: 0.5em 1em;
-            margin: 0.25em;
-            font-size: 0.9em;
-            font-weight: 500;
-            background-color: var(--light-blue-bg);
-            color: var(--primary-color);
-            border-radius: 50px;
-        }
-
-        [data-bs-theme="dark"] .skill-badge {
-            color: #a9c7ff; 
-            background-color: rgba(13, 110, 253, 0.2); 
-        }
-
-        .timeline {
-            position: relative;
-            padding: 0;
-            list-style: none;
-        }
-        
-        .timeline:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 30px;
-            width: 2px;
-            background: #e9ecef;
-        }
-
-        [data-bs-theme="dark"] .timeline:before {
-            background: #3a3a3a;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 30px;
-        }
-        
-        .timeline-icon {
-            position: absolute;
-            left: 15px;
-            top: 0;
-            width: 32px;
-            height: 32px;
-            background: var(--primary-color);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .timeline-content {
-            margin-left: 60px;
-        }
-
-        .timeline-content h5 {
-            font-weight: 600;
-        }
-
-        .timeline-date {
-            font-size: 0.9em;
-            font-weight: 600;
-            color: var(--secondary-color);
-        }
-        
-        .contact-info i {
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-            background-color: var(--light-blue-bg);
-            color: var(--primary-color);
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-
-        [data-bs-theme="dark"] .contact-info a {
-            color: var(--text-color) !important;
-        }
-
-
-        footer {
-            background-color: #e9ecef;
-            color: var(--secondary-color);
-            padding: 20px 0;
-            text-align: center;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        [data-bs-theme="dark"] footer {
-            background-color: #2c2c2c;
-            color: var(--secondary-color);
-        }
-
-        @media (max-width: 991.98px) {
-            .hero-title {
-                font-size: 2.8rem;
-            }
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
-
+  <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="80">
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#hero">Ardelle Jody Nathaniel</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-                <div class="theme-switch-wrapper d-flex align-items-center ms-lg-3 mt-2 mt-lg-0">
-                    <i class="fas fa-sun"></i>
-                     <label class="theme-switch" for="checkbox">
-                        <input type="checkbox" id="checkbox" />
-                        <div class="slider round"></div>
-                    </label>
-                    <i class="fas fa-moon"></i>
-                </div>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="#hero">Ardelle Jody Nathaniel</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item">
+              <a class="nav-link active" href="#hero">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <div class="theme-switch-wrapper">
+                <i class="fas fa-sun"></i>
+                <label class="theme-switch" for="checkbox">
+                  <input type="checkbox" id="checkbox" />
+                  <div class="slider round"></div>
+                </label>
+                <i class="fas fa-moon"></i>
+              </div>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <header id="hero" class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="hero-title display-3">Hi, I'm Ardelle Jody Nathaniel</h1>
-                    <p class="hero-subtitle lead my-4">An aspiring Data Scientist & Software Engineer passionate about building solutions from data.</p>
-                    <div class="hero-socials mt-4">
-                        <a href="https://github.com/Dexcop" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/ardelle-jody-nathaniel-60b94b292/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:ardelle.nathaniel@binus.ac.id"><i class="fas fa-envelope"></i></a>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="hero-title display-3">Hi, I'm Ardelle Jody Nathaniel</h1>
+            <p class="hero-subtitle lead my-4">
+              An aspiring Data Scientist & Software Engineer passionate about
+              building solutions from data.
+            </p>
+            <div class="hero-socials mt-4">
+              <a
+                href="https://github.com/Dexcop"
+                target="_blank"
+                aria-label="View my GitHub profile"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/ardelle-jody-nathaniel-60b94b292/"
+                target="_blank"
+                aria-label="View my LinkedIn profile"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="mailto:ardelle.nathaniel@binus.ac.id"
+                aria-label="Send me an email"
+                ><i class="fas fa-envelope"></i
+              ></a>
             </div>
+          </div>
         </div>
+      </div>
     </header>
 
     <main>
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-center mb-4 mb-lg-0">
-                         <img src="./assets/Self Photo.jpg" class="rounded-circle img-fluid shadow" alt="Ardelle Jody Nathaniel">
-                    </div>
-                    <div class="col-lg-8">
-                        <h3>Driven by Curiosity and Data</h3>
-                        <p>I'm a Computer Science student at Bina Nusantara University (BINUS), with a deep fascination for the stories hidden within data. My journey into tech started with writing a simple html website at middle school, and since then, I've been captivated by the power of code to solve real-world problems.</p>
-                        <p>My primary focus is on data science, by leveraging machine learning and statistical analysis to extract meaningful insights. I'm also skilled in full-stack development, which allows me to build and deploy the applications that bring these insights to life. I am actively seeking an internship or entry-level role where I can contribute my skills and continue to grow as a data professional and software engineer.</p>
-                    </div>
-                </div>
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="row align-items-center">
+            <div class="col-lg-4 text-center mb-4 mb-lg-0">
+              <img
+                src="./assets/Self Photo.jpg"
+                class="rounded-circle img-fluid shadow"
+                alt="Ardelle Jody Nathaniel"
+              />
             </div>
-        </section>
+            <div class="col-lg-8">
+              <h3>Driven by Curiosity and Data</h3>
+              <p>
+                I'm a Computer Science student at Bina Nusantara University
+                (BINUS), with a deep fascination for the stories hidden within
+                data. My journey into tech started with writing a simple html
+                website at middle school, and since then, I've been captivated
+                by the power of code to solve real-world problems.
+              </p>
+              <p>
+                My primary focus is on data science, by leveraging machine
+                learning and statistical analysis to extract meaningful
+                insights. I'm also skilled in full-stack development, which
+                allows me to build and deploy the applications that bring these
+                insights to life. I am actively seeking an internship or
+                entry-level role where I can contribute my skills and continue
+                to grow as a data professional and software engineer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section id="skills" class="section bg-light">
-            <div class="container">
-                <h2 class="section-title">My Skillset</h2>
-                <div class="row gy-4 justify-content-center">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="custom-card p-4 text-center">
-                            <div class="skill-icon mb-3"><i class="fas fa-chart-line"></i></div>
-                            <h5 class="fw-bold">Data Science</h5>
-                            <p class="text-muted">Analyzing data and building predictive models.</p>
-                            <div>
-                                <span class="skill-badge">Python</span>
-                                <span class="skill-badge">Pandas</span>
-                                <span class="skill-badge">NumPy</span>
-                                <span class="skill-badge">Jupyter</span>
-                                <span class="skill-badge">Scikit-learn</span>
-                                <span class="skill-badge">Matplotlib</span>
-                                <span class="skill-badge">Seaborn</span>
-                                <span class="skill-badge">Optuna</span>
-                                <span class="skill-badge">nltk</span>
-                                <span class="skill-badge">cv2</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="custom-card p-4 text-center">
-                            <div class="skill-icon mb-3"><i class="fas fa-code"></i></div>
-                            <h5 class="fw-bold">Web Development</h5>
-                            <p class="text-muted">Crafting responsive and dynamic websites.</p>
-                             <div>
-                                <span class="skill-badge">HTML5</span>
-                                <span class="skill-badge">CSS3</span>
-                                <span class="skill-badge">JavaScript</span>
-                                <span class="skill-badge">React JS</span>
-                                <span class="skill-badge">C# (.Net)</span>
-                                <span class="skill-badge">Laravel</span>
-                                <span class="skill-badge">PHP</span>
-                                <span class="skill-badge">Bootstrap</span>
-                                <span class="skill-badge">REST APIs</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="custom-card p-4 text-center">
-                            <div class="skill-icon mb-3"><i class="fas fa-database"></i></div>
-                            <h5 class="fw-bold">Databases & Tools</h5>
-                            <p class="text-muted">Managing data and streamlining workflows.</p>
-                            <div>
-                                <span class="skill-badge">SQL</span>
-                                <span class="skill-badge">PostgreSQL</span>
-                                <span class="skill-badge">Git & GitHub</span>
-                                <span class="skill-badge">Docker</span>
-                                <span class="skill-badge">Linux/Bash</span>
-                                <span class="skill-badge">VS Code</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="custom-card p-4 text-center">
-                            <div class="skill-icon mb-3"><i class="fas fa-laptop-code"></i></div>
-                            <h5 class="fw-bold">Core Languages</h5>
-                            <p class="text-muted">Strong foundation in core programming.</p>
-                            <div>
-                                <span class="skill-badge">C/C++</span>
-                                <span class="skill-badge">Python</span>
-                                <span class="skill-badge">Java</span>
-                                <span class="skill-badge">SQL</span>
-                            </div>
-                        </div>
-                    </div>
+      <section id="skills" class="section bg-light">
+        <div class="container">
+          <h2 class="section-title">My Skillset</h2>
+          <div class="row gy-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="custom-card p-4 text-center">
+                <div class="skill-icon mb-3">
+                  <i class="fas fa-chart-line"></i>
                 </div>
+                <h5 class="fw-bold">Data Science</h5>
+                <p class="text-muted">
+                  Analyzing data and building predictive models.
+                </p>
+                <div>
+                  <span class="skill-badge">Python</span>
+                  <span class="skill-badge">Pandas</span>
+                  <span class="skill-badge">NumPy</span>
+                  <span class="skill-badge">Jupyter</span>
+                  <span class="skill-badge">Scikit-learn</span>
+                  <span class="skill-badge">Matplotlib</span>
+                  <span class="skill-badge">Seaborn</span>
+                  <span class="skill-badge">Optuna</span>
+                  <span class="skill-badge">nltk</span>
+                  <span class="skill-badge">cv2</span>
+                </div>
+              </div>
             </div>
-        </section>
+            <div class="col-md-6 col-lg-3">
+              <div class="custom-card p-4 text-center">
+                <div class="skill-icon mb-3"><i class="fas fa-code"></i></div>
+                <h5 class="fw-bold">Web Development</h5>
+                <p class="text-muted">
+                  Crafting responsive and dynamic websites.
+                </p>
+                <div>
+                  <span class="skill-badge">HTML5 & CSS3</span>
+                  <span class="skill-badge">JavaScript</span>
+                  <span class="skill-badge">Bootstrap</span>
+                  <span class="skill-badge">React JS</span>
+                  <span class="skill-badge">C# (.Net)</span>
+                  <span class="skill-badge">PHP</span>
+                  <span class="skill-badge">Laravel</span>
+                  <span class="skill-badge">REST APIs</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="custom-card p-4 text-center">
+                <div class="skill-icon mb-3">
+                  <i class="fas fa-database"></i>
+                </div>
+                <h5 class="fw-bold">Databases & Tools</h5>
+                <p class="text-muted">
+                  Managing data and streamlining workflows.
+                </p>
+                <div>
+                  <span class="skill-badge">SQL</span>
+                  <span class="skill-badge">Git & GitHub</span>
+                  <span class="skill-badge">Docker</span>
+                  <span class="skill-badge">Linux/Bash</span>
+                  <span class="skill-badge">VS Code</span>
+                  <span class="skill-badge">PostgreSQL</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="custom-card p-4 text-center">
+                <div class="skill-icon mb-3">
+                  <i class="fas fa-laptop-code"></i>
+                </div>
+                <h5 class="fw-bold">Core Languages</h5>
+                <p class="text-muted">Strong foundation in core programming.</p>
+                <div>
+                  <span class="skill-badge">C/C++</span>
+                  <span class="skill-badge">Python</span>
+                  <span class="skill-badge">Java</span>
+                  <span class="skill-badge">SQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section id="experience" class="section">
-            <div class="container">
-                <h2 class="section-title">Experience</h2>
-                <div class="row">
-                    <div class="col-md-10 mx-auto">
-                        <ul class="timeline">
-                            <li class="timeline-item">
-                                <div class="timeline-icon"><i class="fas fa-briefcase"></i></div>
-                                <div class="timeline-content">
-                                    <p class="timeline-date">Feb 2025 - Feb 2026 (Expected)</p>
-                                    <h5>Developer Associate Member (AMDEV)</h5>
-                                    <p class="text-muted">Bina Nusantara University - IT Division</p>
-                                    <ul>
-                                        <li>Using dot Net (c#) as a framework for maintenance and developing new features for Binus School website, worked both on Front-end (html, css, js) and Back-end (c#).</li>
-                                        <li>Working together with an already structured team with the scrum (agile/sprint) system.</li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <!-- <li class="timeline-item">
-                                <div class="timeline-icon"><i class="fas fa-flask"></i></div>
-                                <div class="timeline-content">
-                                    <p class="timeline-date">Jan 2024 - May 2024</p>
-                                    <h5>Sentiment Analysis Capstone Project</h5>
-                                    <p class="text-muted">University Coursework</p>
-                                    <ul>
-                                        <li>Built a web application using Flask and Scikit-learn to classify movie reviews as positive or negative with 88% accuracy.</li>
-                                        <li>Engineered features from text data using TF-IDF vectorization and trained a Logistic Regression model.</li>
-                                        <li>Deployed the application as a Docker container, providing hands-on experience with containerization and CI/CD principles.</li>
-                                    </ul>
-                                </div>
-                            </li> -->
-                        </ul>
+      <section id="experience" class="section">
+        <div class="container">
+          <h2 class="section-title">Experience & Projects</h2>
+          <div class="row">
+            <div class="col-md-10 mx-auto">
+              <ul class="timeline">
+                <li class="timeline-item">
+                  <div class="timeline-icon">
+                    <i class="fas fa-briefcase"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <p class="timeline-date">Feb 2025 - Feb 2026 (Upcoming)</p>
+                    <h5>Developer Associate Member (AMDEV)</h5>
+                    <p class="text-muted">
+                      Bina Nusantara University - IT Division
+                    </p>
+                    <ul>
+                      <li>
+                        Will develop and maintain features for the Binus School
+                        website using the .NET framework, contributing to both
+                        front-end and back-end codebases.
+                      </li>
+                      <li>
+                        Set to collaborate within an Agile/Scrum environment to
+                        deliver features in structured sprints.
+                      </li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-icon"><i class="fas fa-flask"></i></div>
+                  <div class="timeline-content">
+                    <p class="timeline-date">Jan 2024 - May 2024</p>
+                    <h5>UCI Heart Disease Prediction Model</h5>
+                    <p class="text-muted">Academic Machine Learning Project</p>
+                    <ul>
+                      <li>
+                        Engineered and trained a classification model to predict
+                        heart disease, taking ownership of the data
+                        preprocessing, feature engineering, and modeling
+                        pipelines.
+                      </li>
+                      <li>
+                        Analyzed and addressed significant class imbalance and
+                        data complexities to inform model selection.
+                      </li>
+                      <li>
+                        Leveraged Optuna for efficient hyperparameter tuning to
+                        optimize model performance.
+                      </li>
+                      <li>
+                        Built and deployed an interactive web application using
+                        Streamlit to demonstrate the model's predictions in
+                        real-time.
+                      </li>
+                      <li>
+                        Collaborated in a team environment using Git for version
+                        control and project management.
+                      </li>
+                    </ul>
+                    <div class="mt-3 project-links">
+                      <a
+                        href="https://github.com/Dexcop/ML-UCI-Heart-Disease"
+                        target="_blank"
+                        class="btn btn-outline-primary btn-sm me-2"
+                        aria-label="View Heart Disease project on GitHub"
+                      >
+                        <i class="fab fa-github me-1"></i> View on GitHub
+                      </a>
+                      <a
+                        href="https://ml-uci-heart-disease-jssaqbpnsr5e7ijuq5zqun.streamlit.app/"
+                        target="_blank"
+                        class="btn btn-primary btn-sm"
+                        aria-label="View live demo of Heart Disease project"
+                      >
+                        <i class="fas fa-rocket me-1"></i> Live Demo
+                      </a>
                     </div>
-                </div>
+                  </div>
+                </li>
+              </ul>
             </div>
-        </section>
-        
-        <section id="education" class="section bg-light">
-             <div class="container">
-                <h2 class="section-title">Education</h2>
-                <div class="row">
-                    <div class="col-md-10 mx-auto">
-                         <ul class="timeline">
-                            <li class="timeline-item">
-                                <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
-                                <div class="timeline-content">
-                                    <p class="timeline-date">2023 - 2028 (Expected)</p>
-                                    <h5>Bachelor & Master's degree in Computer Science</h5>
-                                    <p class="text-muted">Bina Nusantara University (BINUS)</p>
-                                    <p><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Artificial Intelligence, Machine Learning, Data Mining, Natural Language Processing (NLP), Computer Vision, Database Systems, Web Development, Software Engineering.</p>
-                                </div>
-                            </li>
-                         </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
-        <section id="contact" class="section">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="row">
-                    <div class="col-md-8 mx-auto text-center">
-                        <p class="lead mb-4">I'm currently looking for new opportunities and would love to connect. Whether you have a question or just want to say hi, feel free to reach out!</p>
-                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
-                            <div class="contact-info d-flex align-items-center">
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:ardelle.nathaniel@binus.ac.id" class="text-decoration-none text-dark">ardelle.nathaniel@binus.ac.id</a>
-                            </div>
-                             <div class="contact-info d-flex align-items-center">
-                                <i class="fab fa-linkedin"></i>
-                                <a href="https://www.linkedin.com/in/ardelle-jody-nathaniel-60b94b292/" target="_blank" class="text-decoration-none text-dark">linkedin.com/in/ardelle-jody-nathaniel</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <section id="education" class="section bg-light">
+        <div class="container">
+          <h2 class="section-title">Education</h2>
+          <div class="row">
+            <div class="col-md-10 mx-auto">
+              <ul class="timeline">
+                <li class="timeline-item">
+                  <div class="timeline-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                  </div>
+                  <div class="timeline-content">
+                    <p class="timeline-date">2023 - 2028 (Expected)</p>
+                    <h5>Bachelor & Master's degree in Computer Science</h5>
+                    <p class="text-muted">Bina Nusantara University (BINUS)</p>
+                    <p>
+                      <strong>Relevant Coursework:</strong> Data Structures &
+                      Algorithms, Artificial Intelligence, Machine Learning,
+                      Data Mining, Natural Language Processing (NLP), Computer
+                      Vision, Database Systems, Web Development, Software
+                      Engineering.
+                    </p>
+                  </div>
+                </li>
+                <li class="timeline-item">
+                  <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+                  <div class="timeline-content">
+                    <p class="timeline-date">
+                      Sept 2025 - Dec 2025 (Currently Enrolled)
+                    </p>
+                    <h5>Data Science & AI Bootcamp - AI Engineer Course</h5>
+                    <p class="text-muted">IDCamp 2025 and dicoding</p>
+                    <p>
+                      Currently developing advanced skills in machine learning
+                      and deep learning (TensorFlow/PyTorch).
+                    </p>
+                  </div>
+                </li>
+              </ul>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <div class="row">
+            <div class="col-md-8 mx-auto text-center">
+              <p class="lead mb-4">
+                I'm currently looking for new opportunities and would love to
+                connect. Whether you have a question or just want to say hi,
+                feel free to reach out!
+              </p>
+              <div
+                class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4"
+              >
+                <div class="contact-info d-flex align-items-center">
+                  <i class="fas fa-envelope"></i>
+                  <a href="mailto:ardelle.nathaniel@binus.ac.id"
+                    >ardelle.nathaniel@binus.ac.id</a
+                  >
+                </div>
+                <div class="contact-info d-flex align-items-center">
+                  <i class="fab fa-linkedin"></i>
+                  <a
+                    href="https://www.linkedin.com/in/ardelle-jody-nathaniel-60b94b292/"
+                    target="_blank"
+                    >linkedin.com/in/ardelle-jody-nathaniel</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="py-4">
-        <div class="container">
-            <p class="mb-0">&copy; 2025 Ardelle Jody Nathaniel. All Rights Reserved.</p>
-        </div>
+      <div class="container">
+        <p class="mb-0">
+          &copy; 2025 Ardelle Jody Nathaniel. All Rights Reserved.
+        </p>
+      </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- light/dark mode switch -->
+    <!-- Scripts -->
     <script>
-        const themeToggle = document.getElementById('checkbox');
-        const htmlElement = document.documentElement;
+      // --- Theme Switcher Script ---
+      const themeToggle = document.getElementById("checkbox");
+      const htmlElement = document.documentElement;
 
-        const setTheme = (theme) => {
-            htmlElement.setAttribute('data-bs-theme', theme);
-            localStorage.setItem('theme', theme);
-            themeToggle.checked = theme === 'dark';
+      const setTheme = (theme) => {
+        htmlElement.setAttribute("data-bs-theme", theme);
+        localStorage.setItem("theme", theme);
+        themeToggle.checked = theme === "dark";
+      };
+
+      const savedTheme = localStorage.getItem("theme");
+
+      if (savedTheme) {
+        setTheme(savedTheme);
+      } else {
+        setTheme("dark"); // Dark mode is now the default
+      }
+
+      themeToggle.addEventListener("change", () => {
+        const isChecked = themeToggle.checked;
+        setTheme(isChecked ? "dark" : "light");
+      });
+
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            setTheme(e.matches ? "dark" : "light");
+          }
+        });
+
+      // --- Active Nav Link on Scroll ---
+      window.addEventListener("DOMContentLoaded", (event) => {
+        const sections = document.querySelectorAll(".section, #hero"); // Include hero section
+        const navLinks = document.querySelectorAll(".nav-link");
+
+        const activateNavLink = () => {
+          // Special case for being at the bottom of the page
+          if (
+            window.innerHeight + window.scrollY >=
+            document.body.offsetHeight - 5
+          ) {
+            navLinks.forEach((link) => link.classList.remove("active"));
+            const lastLink = document.querySelector(
+              '.nav-link[href="#contact"]'
+            );
+            if (lastLink) {
+              lastLink.classList.add("active");
+            }
+            return;
+          }
+
+          let index = sections.length;
+
+          while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+
+          navLinks.forEach((link) => link.classList.remove("active"));
+
+          // Check if the link exists before trying to add a class to it
+          if (navLinks[index]) {
+            navLinks[index].classList.add("active");
+          }
         };
 
-        const savedTheme = localStorage.getItem('theme');
-        
-        if (savedTheme) {
-            setTheme(savedTheme);
-        } else {
-            setTheme('dark'); 
-        }
-
-        themeToggle.addEventListener('change', () => {
-            const isChecked = themeToggle.checked;
-            setTheme(isChecked ? 'dark' : 'light');
-        });
-
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-            if (!localStorage.getItem('theme')) { 
-                 setTheme(e.matches ? 'dark' : 'light');
-            }
-        });
+        activateNavLink();
+        window.addEventListener("scroll", activateNavLink);
+      });
     </script>
-</body>
+  </body>
 </html>
-
